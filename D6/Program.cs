@@ -138,7 +138,7 @@ namespace D6
             {
                 if(skaitlis == 5)
                 {
-                    skaits++;
+                    skaits++;  
                     // skaits += 1;
                     // skaits = skaits + 1;
                 }
