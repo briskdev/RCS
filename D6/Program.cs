@@ -143,6 +143,7 @@ namespace D6
                     // skaits = skaits + 1;
                 }
             }
+
             Console.WriteLine("Skaitlis 5 atrasts {0} reizes", skaits);
 
             // 2. variants
