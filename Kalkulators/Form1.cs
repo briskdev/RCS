@@ -16,6 +16,8 @@ namespace Kalkulators
 
         string operation = "";
 
+        bool isOperationClicked = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -23,6 +25,13 @@ namespace Kalkulators
 
         private void number_clicked(int num)
         {
+            //if(isOperationClicked == true)
+            if(isOperationClicked)
+            {
+                textBox1.Text = "";
+                isOperationClicked = false;
+            }
+
             if(textBox1.Text == "0")
             {
                 textBox1.Text = "";
@@ -33,27 +42,33 @@ namespace Kalkulators
 
         private void operation_clicked(string op)
         {
+            // 1. šobrīd attēlotais skaitlis jāsaglabā kā 'enteredNumber'
+            enteredNumber = textBox1.Text;
+            // 2. izvēlētā darbība jāsaglabā kā 'operation'
+            operation = op;
 
+            // 3. spiežot ciparu pēc darbības - jāsāk jauna ievade 
+            isOperationClicked = true;
         }
 
         private void opMultiply_Click(object sender, EventArgs e)
         {
-
+            operation_clicked("*");
         }
 
         private void opDivide_Click(object sender, EventArgs e)
         {
-
+            operation_clicked("/");
         }
 
         private void opPlus_Click(object sender, EventArgs e)
         {
-
+            operation_clicked("+");
         }
 
         private void opMinus_Click(object sender, EventArgs e)
         {
-
+            operation_clicked("-");
         }
 
         private void opClear_Click(object sender, EventArgs e)

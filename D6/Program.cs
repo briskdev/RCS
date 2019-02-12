@@ -6,10 +6,33 @@ using System.Threading.Tasks;
 
 namespace D6
 {
+    public class Telpa
+    {
+        public int Numurs;
+    }
+
+    public class Klase
+    {
+        public string Nosaukums;
+
+        public Telpa Telpa;
+    }
+
+    public class Skolens
+    {
+        public Klase Klase;
+    }
+
+
     class Program
     {
         static void Main(string[] args)
         {
+            Skolens sk = new Skolens();
+            sk.Klase = new Klase();
+            sk.Klase.Telpa = new Telpa();
+            sk.Klase.Telpa.Numurs = 5;
+
             skaitli5();
 
             Console.ReadLine();
@@ -149,6 +172,45 @@ namespace D6
             // 2. variants
             skaits = skaitli.Count(skaitlis => skaitlis == 5);
             Console.WriteLine("Skaitlis 5 atrasts {0} reizes", skaits);
+        }
+
+        static void minMax()
+        {
+            // Skaitļu ievade:
+            List<int> skaitli = new List<int>();
+            while (true)
+            {
+                Console.Write("Ievadi skaitli (vai tukšu, lai pārtrauktu): ");
+                string vertiba = Console.ReadLine();
+                if (String.IsNullOrEmpty(vertiba))
+                {
+                    break;
+                }
+
+                skaitli.Add(int.Parse(vertiba));
+            }
+
+            int min = skaitli.First();
+            int max = skaitli[0]; 
+
+            foreach(int sk in skaitli)
+            {
+                if(sk < min)
+                {
+                    min = sk;
+                }
+
+                if(sk > max)
+                {
+                    max = sk;
+                }
+            }
+
+            // 2. variants:
+            // min = skaitli.Min();
+            // max = skaitli.Max();
+
+            Console.WriteLine("Min = {0}, max = {1}", min, max);
         }
     }
 }
